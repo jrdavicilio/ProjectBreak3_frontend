@@ -1,0 +1,470 @@
+/* ===========================
+   Reset básico
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   Estilos base del body
+=========================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   Contenedor general de páginas
+=========================== */
+.page-container {
+  max-width: 900px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+  background: white;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  padding-bottom: 20px;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #222;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.25s ease;
+}
+
+.nav-link:hover {
+  background-color: #444;
+}
+
+/* ===========================
+   Formulario de Login
+=========================== */
+.login-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.login-form input,
+.login-form button {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form input {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  padding: 0.45rem;
+}
+
+/* Inputs de formulario general (texto, email, password) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #222;
+}
+
+/* ===========================
+   Botones generales
+=========================== */
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: #222;
+  color: white;
+  transition: background-color 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #444;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   Tabla para Admin
+=========================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tr:hover {
+  background-color: #eaeaea;
+}
+
+/* ===========================
+   Clases en Inscripción
+=========================== */
+.clases-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.clase-card {
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.clase-card.verde {
+  border-left: 5px solid #4CAF50;
+}
+
+.clase-card.naranja {
+  border-left: 5px solid #FF9800;
+}
+
+.clase-card.rojo {
+  border-left: 5px solid #f44336;
+}
+
+.clase-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.clase-card p {
+  margin: 0.2rem 0;
+}
+
+.clase-card button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #222;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.clase-card button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.clase-card button:not(:disabled):hover {
+  background-color: #444;
+}
+
+/* ===========================
+   Lista alumnos inscritos (Clase.jsx)
+=========================== */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  background: #f5f5f5;
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ul li button:hover {
+  background-color: #d32f2f;
+}
+
+/* ===========================
+   Mensajes de error o alerta
+=========================== */
+.mensaje {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #f44336;
+}
+
+/* ===========================
+   Footer general
+=========================== */
+.footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+}
+
+/* ===========================
+   Estilos específicos para la página Home
+=========================== */
+.home__title {
+  max-width: 720px;
+  margin: 0 auto 2rem auto; /* arriba 0, abajo 2rem, izquierda y derecha auto */
+  text-align: left;
+  padding-top: 20px;
+}
+
+.home__intro {
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 720px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+}
+
+.home__section {
+  margin-top: 3rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home__section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  border-bottom: 3px solid #222;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.home__section-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.home__section-subtitle {
+  font-weight: 600;
+  color: #222;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Lista niveles */
+.home__levels-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.home__levels-list > li {
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  border-left: 4px solid #222;
+  color: #444;
+}
+
+.home__levels-list > li strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.home__levels-list > li ul {
+  margin-top: 0.4rem;
+  padding-left: 1.2rem;
+  color: #555;
+  list-style: disc;
+}
+
+/* ===========================
+   Video embebido (Home)
+=========================== */
+.home__video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  max-width: 720px;
+  margin: 1.5rem auto 2rem auto;
+}
+
+.home__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===========================
+   Footer específico Home
+=========================== */
+.home__footer {
+  max-width: 720px;
+  margin: 3rem auto 0 auto;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 768px) {
+  .navbar {
+    gap: 1rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+    background: white;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 0.8rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    max-width: 100%;
+  }
+
+  .clase-card {
+    padding: 1rem 0.8rem;
+  }
+
+  .home__title,
+  .home__section-title,
+  .home__intro,
+  .home__section-text,
+  .home__section-subtitle {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .home__video-container {
+    max-width: 100%;
+  }
+
+  .home__levels-list > li {
+    padding-left: 0.7rem;
+  }
+
+  .home__levels-list > li ul {
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  td[data-label]::before {
+    display: none;
+  }
+}
