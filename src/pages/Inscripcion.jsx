@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Inscripcion = () => {
   const [clases, setClases] = useState([]);
   const [nombre, setNombre] = useState('');
@@ -8,7 +10,7 @@ const Inscripcion = () => {
   const [inscritos, setInscritos] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/clases')
+    fetch(`${backendUrl}/api/clases`)
       .then(res => res.json())
       .then(data => {
         setClases(data);
@@ -37,7 +39,7 @@ const Inscripcion = () => {
     setInscribiendoseIds(prev => [...prev, id]);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/clases/${id}/inscribir`, {
+      const res = await fetch(`${backendUrl}/api/clases/${id}/inscribir`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre })

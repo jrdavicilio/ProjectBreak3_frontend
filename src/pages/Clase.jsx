@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Clase = () => {
   const { id } = useParams();
   const [inscritos, setInscritos] = useState([]);
@@ -10,7 +12,7 @@ const Clase = () => {
 
   const fetchClase = () => {
     setLoading(true);
-    fetch(`http://localhost:5000/api/clases/${id}`)
+    fetch(`${backendUrl}/api/clases/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Clase no encontrada');
         return res.json();
@@ -33,7 +35,7 @@ const Clase = () => {
   const handleBorrarAlumno = async (idAlumno) => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/clases/${id}/alumnos/${idAlumno}`, {
+      const res = await fetch(`${backendUrl}/api/clases/${id}/alumnos/${idAlumno}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token") || ''}`,

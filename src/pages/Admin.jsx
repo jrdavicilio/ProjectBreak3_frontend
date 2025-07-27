@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Admin = () => {
   const [clases, setClases] = useState([]);
   const [error, setError] = useState('');
@@ -13,7 +15,7 @@ const Admin = () => {
       return;
     }
 
-    fetch('http://localhost:5000/api/clases', {
+    fetch(`${backendUrl}/api/clases`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
@@ -40,17 +42,16 @@ const Admin = () => {
           </tr>
         </thead>
         <tbody>
-  {clases.map(c => (
-    <tr key={c._id}>
-      <td data-label="Estilo"><Link to={`/clase/${c._id}`}>{c.estilo}</Link></td>
-      <td data-label="Profesor">{c.profesor}</td>
-      <td data-label="Horario">{c.horario}</td>
-      <td data-label="Plazas libres">{c.plazasDisponibles}</td>
-      <td data-label="Plazas totales">{c.plazasTotales}</td>
-    </tr>
-  ))}
-</tbody>
-
+          {clases.map(c => (
+            <tr key={c._id}>
+              <td data-label="Estilo"><Link to={`/clase/${c._id}`}>{c.estilo}</Link></td>
+              <td data-label="Profesor">{c.profesor}</td>
+              <td data-label="Horario">{c.horario}</td>
+              <td data-label="Plazas libres">{c.plazasDisponibles}</td>
+              <td data-label="Plazas totales">{c.plazasTotales}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
